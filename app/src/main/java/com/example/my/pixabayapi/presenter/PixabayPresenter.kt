@@ -24,7 +24,6 @@ class PixabayPresenter(private var view: PixabayView) {
             override fun onFailure(call: Call<PixabayModel>, t: Throwable) {
                 Log.e("Tash", t.message.toString())
             }
-
         })
     }
 

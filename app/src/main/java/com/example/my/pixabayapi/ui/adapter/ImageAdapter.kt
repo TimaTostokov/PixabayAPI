@@ -1,6 +1,7 @@
 package com.example.my.pixabayapi.ui.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -27,8 +28,6 @@ class ImageAdapter(var list: ArrayList<ImageModel>) :
         notifyDataSetChanged()
     }
 
-    fun cleanImage() { list.clear()}
-
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         holder.onBind(list[position])
     }
@@ -40,8 +39,11 @@ class ImageAdapter(var list: ArrayList<ImageModel>) :
     inner class ImageViewHolder(var binding: ItemImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(imageModel: ImageModel) {
-            binding.imageView.load(imageModel.largeImageUrl)
+            binding.imageView.load(imageModel.webFormatUrl)
         }
+    }
+    fun cleanImage() {
+        list.clear()
     }
 
 }
